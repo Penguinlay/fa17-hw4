@@ -6,11 +6,16 @@ class TodosController < ApplicationController
     end
 
     def create
-        # Issue: maybe wrong because it prints blank...
-        @todo = Todo.new
-        @todo.tasks = params[:tasks]
-        @todo.finished = params[:finished]
-        @todo.save!
+        # Issue: Below is wrong and it will print blank...
+        # @todo = Todo.new
+        # @todo.tasks = params[:tasks]
+        # @todo.finished = params[:finished]
+        # @todo.save!
+
+        # It works now!
+        todo = Todo.new(tasks: params[:todo][:tasks], finished: params[:todo][:finished])
+        todo.save!
+
         redirect_to root_url
     end
 end
