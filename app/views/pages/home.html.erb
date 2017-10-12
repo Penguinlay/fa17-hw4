@@ -1,0 +1,52 @@
+<!-- ======================================================================= -->
+
+<h3><u>Cats</u></h3>
+
+<% if @cats.empty? %>                   <!-- Check if there is any cat. -->
+    <p>🚫 🐱 🙀 ⁉️ 😩</p>
+<% else %>
+    <% @cats.each do |cat| %>
+        <p><%= cat.name %></p>
+        <br>
+    <% end %>
+<% end %>
+
+<br>
+
+<!-- ======================================================================= -->
+
+<h3><u>Todos</u></h3>
+
+<% if @todos.empty? %>                  <!-- Check if there is any todo. -->
+    <p>🚫 📝 📌 ‼️ 🎉</p>
+<% else %>
+    <% @todos.each do |todo| %>
+        <% if todo.finished %>          <!-- Strikethrough if todo is done. -->
+            <p><s><%= todo.tasks %></s></p>
+        <% else %>
+            <p><%= todo.tasks %></p>
+        <% end %>
+        <br>
+    <% end %>
+<% end %>
+
+<br>
+
+<!-- ======================================================================= -->
+
+<h3><u>Users</u></h3>
+
+<% if @users.empty? %>                  <!-- Check if there is any user. -->
+    <p>🚫 👩‍💻 👨‍💻 ⁉️ 👻</p>
+<% else %>
+    <% @users.each do |user| %>
+        <p>Username: <b><%= user.username %></b></p>
+        <p>Age: <%= user.age %></p>
+        <p>Email: <%= user.email %></p>
+        <br>
+    <% end %>
+<% end %>
+
+<br>
+
+<!-- ======================================================================= -->
